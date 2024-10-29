@@ -48,6 +48,19 @@ public class CalculatorTest {
 		int result = calculator.add("1\n2,3");
 		assertEquals("Single number should return number",6,result);
 	}
+	@Test
+	public void shouldHandleEmptyValueBetweenDelimiter() {
+		Calculator calculator = new Calculator();
+		int result = calculator.add("1,,2,3");
+		assertEquals("Single number should return number",6,result);
+	}
+	
+//	@Test
+//	public void shouldHandleLineBreak1() {
+//		Calculator calculator = new Calculator();
+//		int result = calculator.add("/1,2,3");
+//		assertEquals("Single number should return number",6,result);
+//	}
 	
 
 }

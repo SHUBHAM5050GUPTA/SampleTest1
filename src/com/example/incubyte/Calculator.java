@@ -17,6 +17,10 @@ public class Calculator {
 		String[] stringArray = string.split("[,\n]");
 		int[] intArray = new int[stringArray.length];
 		for(int i=0;i<stringArray.length;i++) {
+			if(stringArray[i].isEmpty()) {
+				intArray[i]=0;
+				continue;
+			}
 			intArray[i]=Integer.parseInt(stringArray[i]);
 		}
 		

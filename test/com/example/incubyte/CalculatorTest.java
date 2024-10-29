@@ -42,5 +42,12 @@ public class CalculatorTest {
 		assertEquals("Single number should return number",21,result);
 	}
 	
+	@Test
+	public void shouldHandleLineBreak() {
+		Calculator calculator = new Calculator();
+		int result = calculator.add("1\n2,3");
+		assertEquals("Single number should return number",6,result);
+	}
+	
 
 }

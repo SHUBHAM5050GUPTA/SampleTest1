@@ -55,12 +55,18 @@ public class CalculatorTest {
 		assertEquals("Single number should return number",6,result);
 	}
 	
-//	@Test
-//	public void shouldHandleLineBreak1() {
-//		Calculator calculator = new Calculator();
-//		int result = calculator.add("/1,2,3");
-//		assertEquals("Single number should return number",6,result);
-//	}
+	@Test
+	public void shouldSupportDifferentDelimiter() {
+		Calculator calculator = new Calculator();
+		int result = calculator.add("//;\n1;2");
+		assertEquals("Single number should return number",3,result);
+	}
+	@Test
+	public void shouldSupportDifferentDelimiterComa() {
+		Calculator calculator = new Calculator();
+		int result = calculator.add("//,\n1,2");
+		assertEquals("Single number should return number",3,result);
+	}
 	
-
+	
 }

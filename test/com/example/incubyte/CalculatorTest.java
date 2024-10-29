@@ -1,6 +1,7 @@
 package com.example.incubyte;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ public class CalculatorTest {
 	@Test
 	public void emptyStringShouldReturn0() {
 		Calculator calculator = new Calculator();
-		int result = Calculator.add("");
+		int result = calculator.add("");
 		assertEquals("Empty string should return 0",0,result);
 	}
 	
@@ -66,6 +67,24 @@ public class CalculatorTest {
 		Calculator calculator = new Calculator();
 		int result = calculator.add("//,\n1,2");
 		assertEquals("should support differnt delimiter type coma",3,result);
+	}
+	
+	@Test
+	public void shouldthrowExceptionForNegativeNumbers() {
+		Calculator calculator = new Calculator();
+		IllegalArgumentException e = assertThrows(IllegalArgumentException.class, ()->{
+			calculator.add("//,\n-1,2");
+		});
+		assertEquals("negative numbers not allowed: -1",e.getMessage());
+	}
+	
+	@Test
+	public void shouldthrowExceptionForMultipleNegativeNumbers() {
+		Calculator calculator = new Calculator();
+		IllegalArgumentException e = assertThrows(IllegalArgumentException.class, ()->{
+			calculator.add("//,\n-1,-2,-3,");
+		});
+		assertEquals("negative numbers not allowed: -1,-2,-3",e.getMessage());
 	}
 	
 	

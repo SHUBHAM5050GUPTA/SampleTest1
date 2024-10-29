@@ -25,14 +25,14 @@ public class CalculatorTest {
 	public void singleNumberWithComaShouldReturnNumber() {
 		Calculator calculator = new Calculator();
 		int result = calculator.add("5,");
-		assertEquals("Single number should return number",5,result);
+		assertEquals("Single number with coma should return number",5,result);
 	}
 	
 	@Test
 	public void multipleNumberShouldReturnSum() {
 		Calculator calculator = new Calculator();
 		int result = calculator.add("5,7");
-		assertEquals("Single number should return number",12,result);
+		assertEquals("Multiple number should return sum",12,result);
 	}
 	
 	@Test
@@ -46,26 +46,26 @@ public class CalculatorTest {
 	public void shouldHandleLineBreak() {
 		Calculator calculator = new Calculator();
 		int result = calculator.add("1\n2,3");
-		assertEquals("Single number should return number",6,result);
+		assertEquals("Multiple number should handle Line break",6,result);
 	}
 	@Test
 	public void shouldHandleEmptyValueBetweenDelimiter() {
 		Calculator calculator = new Calculator();
 		int result = calculator.add("1,,2,3");
-		assertEquals("Single number should return number",6,result);
+		assertEquals("should handle empty value between delimiter",6,result);
 	}
 	
 	@Test
 	public void shouldSupportDifferentDelimiter() {
 		Calculator calculator = new Calculator();
 		int result = calculator.add("//;\n1;2");
-		assertEquals("Single number should return number",3,result);
+		assertEquals("should support different delimiter",3,result);
 	}
 	@Test
 	public void shouldSupportDifferentDelimiterComa() {
 		Calculator calculator = new Calculator();
 		int result = calculator.add("//,\n1,2");
-		assertEquals("Single number should return number",3,result);
+		assertEquals("should support differnt delimiter type coma",3,result);
 	}
 	
 	
